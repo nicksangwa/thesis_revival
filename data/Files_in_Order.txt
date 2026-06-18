@@ -1,0 +1,23 @@
+thesis_revival_paper/
+│
+├── data/
+│   ├── raw/                     (original NGSIM CSVs – untouched)
+│   ├── processed/               (lane_change_events_classified.csv, etc.)
+│   └── outputs/                 (tables, figures you already generated)
+│
+├── code/
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_lane_change_identification.ipynb   (the clean version I provided)
+│   ├── 03_modeling.ipynb                     (if you did Phase 3)
+│   └── utils.py                               (reusable functions)
+│
+├── paper/
+│   ├── draft_v1.docx (or .tex)
+│   ├── figures/       (all graphs from your notebooks, exported as high‑res PNG/PDF)
+│   ├── tables/        (CSVs of Table 8, comparison tables)
+│   └── references.bib (or .ris)
+│
+└── notes/
+    ├── paper_outline.md
+    ├── writing_log.md      (daily progress)
+    └── to_do_list.md
