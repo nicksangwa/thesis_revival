@@ -42,46 +42,29 @@ Development	Jupyter Notebooks, VS Code, Git
 Project Management	Todoist (task tracking)
 
  Repository Structure
- thesis_revival_project/
+ thesis_revival/
 │
 ├── data/
-│   ├── raw/                    # Original NGSIM files (unmodified)
-│   │   ├── trajectories-0750am-0805am.csv
-│   │   ├── trajectories-0805am-0820am.csv
-│   │   └── trajectories-0820am-0835am.csv
-│   │
-│   └── processed/              # Cleaned and combined datasets
-│       └── combined_trajectories_0750am_0835am.csv
+│   ├── raw/                     (original NGSIM CSVs – untouched)
+│   ├── processed/               (lane_change_events_classified.csv, etc.)
+│   └── outputs/                 (tables, figures you already generated)
 │
-├── notebooks/                  # Jupyter notebooks for analysis
+├── code/
 │   ├── 01_data_exploration.ipynb
-│   ├── 02_lane_change_identification.ipynb
-│   ├── 03_mlc_dlc_classification.ipynb
-│   ├── 04_model_replication.ipynb
-│   └── 05_driver_clustering.ipynb
+│   ├── 02_lane_change_identification.ipynb   (the clean version I provided)
+│   ├── 03_modeling.ipynb                     (if you did Phase 3)
+│   └── utils.py                               (reusable functions)
 │
-├── src/                       # Python modules for reusable code
-│   ├── data_preprocessing.py
-│   ├── feature_engineering.py
-│   └── modeling.py
+├── paper/
+│   ├── draft_v1.docx (or .tex)
+│   ├── figures/       (all graphs from your notebooks, exported as high‑res PNG/PDF)
+│   ├── tables/        (CSVs of Table 8, comparison tables)
+│   └── references.bib (or .ris)
 │
-├── outputs/                   # Generated figures and tables
-│   ├── figures/
-│   │   ├── avg_speed_per_lane.png
-│   │   └── lane_change_distribution.png
-│   │
-│   └── tables/
-│       ├── thesis_table_8_replicated.csv
-│       └── model_comparison.csv
-│
-├── docs/                      # Documentation
-│   ├── thesis_final_version.pdf
-│   ├── methodology_notes.md
-│   └── learning_log.md        # Personal learning journey
-│
-├── tests/                     # Unit tests for critical functions
-│   └── test_lane_change_detection.py
-│
+└── notes/
+│   ├── paper_outline.md
+│   ├── writing_log.md      (daily progress)
+│   └── to_do_list.md
 ├── .gitignore
 ├── requirements.txt
 ├── LICENSE
@@ -116,48 +99,13 @@ Project Management	Todoist (task tracking)
 
     gap_acceptance_probability
 
-🚀 Getting Started
-Prerequisites
-
-python>=3.9
-pip install -r requirements.txt
-
-Installation
-# Clone repository
-git clone https://github.com/nicksangwa-commits/thesis_revival.git
-cd thesis_revival
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Download NGSIM data (place in data/raw/)
-# Available from FHWA website
-
-Basic Usage
-import pandas as pd
-from src.data_preprocessing import load_and_combine_trajectories
-
-# Load data
-df = load_and_combine_trajectories()
-
-# Identify lane changes
-from src.feature_engineering import identify_lane_changes
-lane_change_events = identify_lane_changes(df)
-
-# Classify maneuvers
-from src.feature_engineering import classify_maneuvers
-classified_events = classify_maneuvers(lane_change_events)
 
 📈 Results & Validation
 Thesis Replication Status
 Thesis Component	Status	Accuracy
 Table 8: Mean Values per Maneuver	✅ Complete	98% match
 Graph 1a: Speed per Lane	✅ Complete	Visual match
-Graph 1b: Speed per Section	🔄 In Progress	-
+Graph 1b: Speed per Section	✅ In Progress	-
 Multinomial Logit Model	🔄 In Progress	-
 
 Improvements Over Original Thesis
